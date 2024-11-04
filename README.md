@@ -47,3 +47,13 @@ Starts the CloudWatch Agent with the specified configuration.
 4. For future scaling purpose, Servers could be added dynamically for this process. This can be done in 2 ways -
 * Dynamic Inventory Scripts: Instead of manually adding servers to a static inventory file, use dynamic inventory scripts. These scripts automatically fetch up-to-date server lists from cloud providers   like AWS, Azure, or Google Cloud.
 * Cloud Inventory Plugins: Ansible includes built-in inventory plugins for major cloud providers (e.g., aws_ec2, azure_rm) that can query instances directly from your cloud account.
+
+Components Involved in the Process
+* Ansible Control Node: The main server where Ansible playbooks are executed.
+* Playbooks: YAML files defining tasks for installing and configuring the CloudWatch Agent on target EC2 instances.
+* AWS IAM Roles: Roles with permissions for instances to access CloudWatch and S3.
+* CloudWatch Agent Configuration File: JSON file specifying metrics (e.g., CPU, memory) and log collection settings.
+* EC2 Instances: Target instances across which the CloudWatch Agent is deployed.
+* Amazon CloudWatch: AWS service where metrics are sent for monitoring.
+* Amazon S3: Optional storage for CloudWatch logs or metrics backups.
+
