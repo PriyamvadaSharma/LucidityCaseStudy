@@ -1,6 +1,6 @@
 ---
 - name: Install CloudWatch Agent
-  hosts: datadog
+  hosts: all
   become: yes  # Use sudo privileges
 
   tasks:
