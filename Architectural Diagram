@@ -1,0 +1,34 @@
+High-Level Architectural Diagram
+Approach 1 
+Below is an outline of the architecture:
+
+* Ansible: Run Ansible playbooks on a schedule from the centralized management account.
+* IAM Roles: Enable cross-account access using IAM roles with sts:AssumeRole.
+* EC2 Instances: Ansible collects disk utilization from each EC2 instance in all accounts.
+* S3 Bucket: Collect JSON output from Ansible runs for centralized storage.
+* Lambda Aggregator: A Lambda function aggregates the data and generates a report.
+* QuickSight (Optional): For more advanced reporting and visualization.
+
+  ┌───────────────┐                 ┌───────────────┐
+  │ Management    │                 │ Acquired      │
+  │ Account       │                 │ Account       │
+  │               │                 │               │
+  │ Ansible       │       Access    │ IAM Roles     │
+  │ Playbook      │  ───────────>   │               │
+  │   S3 Bucket   │                 │ EC2 Instances │
+  └───────────────┘                 └───────────────┘
+           │                               │
+           │                               │
+           │      Centralized Collection   │
+           └──────────────────────────────>┘
+           │
+     ┌─────▼─────┐
+     │  Lambda   │
+     │ Aggregator│
+     └─────┬─────┘
+           │
+     ┌─────▼─────┐
+     │ QuickSight│
+     │ Dashboard │
+     └───────────┘
+
