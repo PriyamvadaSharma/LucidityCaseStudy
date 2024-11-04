@@ -32,3 +32,15 @@ Below is an outline of the architecture:
      │ Dashboard │
      └───────────┘
 
+Approach 2
+Below is an outline of the architecture:
+
+* Ansible Control Node: The main server where Ansible playbooks are executed.
+* Playbooks: YAML files defining tasks for installing and configuring the CloudWatch Agent on target EC2 instances.
+* AWS IAM Roles: Roles with permissions for instances to access CloudWatch and S3.
+* CloudWatch Agent Configuration File: JSON file specifying metrics (e.g., CPU, memory) and log collection settings.
+* EC2 Instances: Target instances across which the CloudWatch Agent is deployed.
+* Amazon CloudWatch: AWS service where metrics are sent for monitoring.
+* Amazon S3: Storage for CloudWatch logs or metrics backups.
+
+[Architectural diagram for 2nd approach](./image.png)
