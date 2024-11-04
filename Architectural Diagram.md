@@ -9,28 +9,7 @@ Below is an outline of the architecture:
 * Lambda Aggregator: A Lambda function aggregates the data and generates a report.
 * QuickSight (Optional): For more advanced reporting and visualization.
 
-  ┌───────────────┐                 ┌───────────────┐
-  │ Management    │                 │ Acquired      │
-  │ Account       │                 │ Account       │
-  │               │                 │               │
-  │ Ansible       │       Access    │ IAM Roles     │
-  │ Playbook      │  ───────────>   │               │
-  │   S3 Bucket   │                 │ EC2 Instances │
-  └───────────────┘                 └───────────────┘
-           │                               │
-           │                               │
-           │      Centralized Collection   │
-           └──────────────────────────────>┘
-           │
-     ┌─────▼─────┐
-     │  Lambda   │
-     │ Aggregator│
-     └─────┬─────┘
-           │
-     ┌─────▼─────┐
-     │ QuickSight│
-     │ Dashboard │
-     └───────────┘
+  ![Architechtural diagram](./Architectural_diag.png)
 
 Approach 2
 Below is an outline of the architecture:
@@ -43,4 +22,4 @@ Below is an outline of the architecture:
 * Amazon CloudWatch: AWS service where metrics are sent for monitoring.
 * Amazon S3: Storage for CloudWatch logs or metrics backups.
 
-[Architectural diagram for 2nd approach](./image.png)
+![Architectural diagram for 2nd approach](./image.png)
