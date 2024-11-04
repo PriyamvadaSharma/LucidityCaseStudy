@@ -44,4 +44,6 @@ Copies a configuration file to the target instance.
 Moves the configuration file to the appropriate directory.
 Starts the CloudWatch Agent with the specified configuration.
 
-4. For future scaling pur
+4. For future scaling purpose, Servers could be added dynamically for this process. This can be done in 2 ways -
+* Dynamic Inventory Scripts: Instead of manually adding servers to a static inventory file, use dynamic inventory scripts. These scripts automatically fetch up-to-date server lists from cloud providers   like AWS, Azure, or Google Cloud.
+* Cloud Inventory Plugins: Ansible includes built-in inventory plugins for major cloud providers (e.g., aws_ec2, azure_rm) that can query instances directly from your cloud account.
